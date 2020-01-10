@@ -12,17 +12,5 @@ return function(App $app, ContainerInterface $container) {
     $app->get('/messages', Action\Email\MessagesListAction::class . ':handle');
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
-    $app->get('/test', function() {
-        $doctrine = '';
-
-        die('asdfsafd');
-    });
-    $app->get('/testdb', Action\Main\TestAction::class);
-
-    $app->get('/hello_new/{name}/{country}', function (Request $request, Response $response, $args) {
-        dd($request->getAttribute('name'), $request->getAttribute('country'));
-
-        $response->getBody()->write("Hello, $name");
-        return $response;
-    });
+    $app->get('/testdb', Action\Main\DBAction::class . ':handle');
 };
