@@ -12,5 +12,8 @@ return function(App $app, ContainerInterface $container) {
     $app->get('/messages', Action\Email\MessagesListAction::class . ':handle');
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
+    $app->get('/api/domain', Action\Api\Domain\DomainListAction::class . ':handle');
+    $app->post('/api/domain', Action\Api\Domain\DomainStoreAction::class . ':handle');
+
     $app->get('/testdb', Action\Main\DBAction::class . ':handle');
 };

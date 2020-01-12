@@ -10,7 +10,7 @@
         "php-di/php-di": "^6.0",
         "twig/twig": "^3.0",
         "php-imap/php-imap": "^3.0",
-        "doctrine/orm": "^2.7",
+        "doctrine/orm": "^2",
         "ramsey/uuid": "^3.9",
         "symfony/validator": "^5.0",
         "webmozart/assert": "^1.6",

@@ -2,9 +2,8 @@
 
 namespace App\Model\Email\Entity;
 
-/**
- * @ORM
- */
+use Doctrine\ORM\Mapping as ORM;
+
 class EmailMessage
 {
     private $from;

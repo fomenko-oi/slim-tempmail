@@ -20,9 +20,6 @@ $container = (require 'config/container.php')->build();
 $cli = new Application('Application console');
 $entityManager = $container->get(Doctrine\ORM\EntityManagerInterface::class);
 
-dd($entityManager);
-die;
-
 $connection = $entityManager->getConnection();
 $configuration = new Configuration($connection);
 $configuration->setMigrationsDirectory('src/Data/Migration');

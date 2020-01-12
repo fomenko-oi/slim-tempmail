@@ -45,6 +45,7 @@ return [
             'types' => [
                 Type\Domain\DomainIdType::NAME => Type\Domain\DomainIdType::class,
                 Type\Email\EmailIdType::NAME => Type\Email\EmailIdType::class,
+                Type\Domain\DomainTypeType::NAME => Type\Domain\DomainTypeType::class,
             ],
         ],
     ],

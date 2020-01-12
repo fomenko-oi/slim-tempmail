@@ -7,6 +7,7 @@ use App\Model\Domain\Entity\Event\DomainDisabled;
 use App\Model\EventTrait;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Webmozart\Assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -16,8 +17,8 @@ use Webmozart\Assert\Assert;
  */
 class Domain
 {
-    private const STATUS_ENABLED = 'enabled';
-    private const STATUS_DISABLED = 'disabled';
+    const STATUS_ENABLED = 'enabled';
+    const STATUS_DISABLED = 'disabled';
 
     /**
      * @ORM\Column(type="domain_id")
@@ -25,17 +26,21 @@ class Domain
      */
     private string $id;
     /**
-     * @ORN\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     private string $host;
     /**
-     * @ORM\Column(type="datetime_immutable", name="chacked_at")
+     * @ORM\Column(type="datetime_immutable", name="checked_at", nullable=true)
      */
-    private \DateTimeImmutable $checkedAt;
+    private ?\DateTimeImmutable $checkedAt = null;
     /**
-     * @ORM\Column(type="string", length=16, nullable=true)
+     * @ORM\Column(type="string", length=16)
      */
     private string $status;
+    /**
+     * @ORM\Column(type="domain_type", length=16)
+     */
+    private DomainType $type;
 
     use EventTrait;
 
@@ -48,6 +53,7 @@ class Domain
         $this->id = $id;
         $this->host = mb_strtolower($domain);
         $this->status = self::STATUS_ENABLED;
+        $this->type = DomainType::common();
 
         $this->recordEvent(new DomainCreated($id, $domain));
     }
@@ -89,7 +95,6 @@ class Domain
     {
         return $this->checkedAt;
     }
-
     public function setCheckedAt(\DateTimeImmutable $checkedAt): self
     {
         $this->checkedAt = $checkedAt;
@@ -100,10 +105,19 @@ class Domain
     {
         return $this->status;
     }
-
     public function setStatus(string $status): self
     {
         $this->status = $status;
+        return $this;
+    }
+
+    public function getType(): ?DomainType
+    {
+        return $this->type;
+    }
+    public function setType(DomainType $type): self
+    {
+        $this->type = $type;
         return $this;
     }
 }

@@ -41,7 +41,7 @@ return [
             'port' => (int)getenv('MAIL_SERVER_PORT'),
             'username' => getenv('MAIL_SERVER_USERNAME'),
             'password' => getenv('MAIL_SERVER_PASSWORD'),
-            'attachment_dir' => 'public/attachments'
+            'attachment_dir' => 'public/attachments',
         ],
         'mailer' => [
             'host' => getenv('MAILER_HOST'),
@@ -50,6 +50,7 @@ return [
             'password' => getenv('MAILER_PASSWORD'),
             'encryption' => getenv('MAILER_ENCRYPTION'),
             'from' => [getenv('MAILER_FROM_EMAIL') => 'App'],
+            'notification_email' => getenv('ADMIN_NOTIFICATION_EMAIL')
         ],
     ],
 ];
