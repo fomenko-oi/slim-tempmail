@@ -39,6 +39,15 @@ services:
     depends_on:
       - mysql
 
+  storage-nginx:
+    build:
+      context: ./docker/storage
+      dockerfile: nginx.docker
+    volumes:
+      - ./storage:/var/www/storage
+    ports:
+      - "8083:80"
+
   imap-mail:
     image: tvial/docker-mailserver:latest
     hostname: ${HOSTNAME}
