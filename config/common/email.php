@@ -1,15 +1,24 @@
 <?php
 
 use Ddeboer\Imap\Server;
-use App\Service\Email\MailService;
+use App\Service\Email\ReceiverService;
 use Psr\Container\ContainerInterface;
+use App\Service\Email\SenderService;
+use App\Model\Email\Entity\MessageRepository;
+use App\Model\Flusher;
+use League\Flysystem\FilesystemInterface;
 
 return [
-    MailService::class => function(ContainerInterface $container) {
-        return new MailService(
+    ReceiverService::class => function(ContainerInterface $container) {
+        return new ReceiverService(
             $container->get(Server::class),
-            $container->get(Swift_Mailer::class)
+            $container->get(MessageRepository::class),
+            $container->get(Flusher::class),
+            $container->get(FilesystemInterface::class)
         );
+    },
+    SenderService::class => function(ContainerInterface $container) {
+        return new SenderService($container->get(Swift_Mailer::class));
     },
 
     Swift_Mailer::class => function (ContainerInterface $container) {

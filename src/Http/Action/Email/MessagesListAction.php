@@ -2,18 +2,18 @@
 
 namespace App\Http\Action\Email;
 
-use App\Service\Email\MailService;
+use App\Service\Email\ReceiverService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class MessagesListAction
 {
     /**
-     * @var MailService
+     * @var ReceiverService
      */
-    private MailService $service;
+    private ReceiverService $service;
 
-    public function __construct(MailService $mailService)
+    public function __construct(ReceiverService $mailService)
     {
         $this->service = $mailService;
     }

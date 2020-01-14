@@ -2,7 +2,7 @@
 
 namespace App\Http\Action\Main;
 
-use App\Service\Email\MailService;
+use App\Service\Email\ReceiverService;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

@@ -5,7 +5,7 @@ use App\Http\Action\Email\MessagesListAction;
 use App\Http\Action\Email\MessagesSendAction;
 use App\Http\Action\Main\TestAction;
 use Psr\Container\ContainerInterface;
-use App\Service\Email\MailService;
+use App\Service\Email\ReceiverService;
 use App\Http\Action\Main\DBAction;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Http\Action\Api\Domain\DomainListAction;
@@ -17,12 +17,12 @@ return [
     },
     MessagesListAction::class => function(ContainerInterface $container) {
         return new MessagesListAction(
-            $container->get(MailService::class)
+            $container->get(ReceiverService::class)
         );
     },
     MessagesSendAction::class => function(ContainerInterface $container) {
         return new MessagesSendAction(
-            $container->get(MailService::class)
+            $container->get(ReceiverService::class)
         );
     },
     TestAction::class => function(ContainerInterface $container) {

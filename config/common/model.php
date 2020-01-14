@@ -2,8 +2,11 @@
 
 use Psr\Container\ContainerInterface;
 use App\Infrastructure\Model\Domain\Entity\DoctrineDomainRepository;
+use App\Infrastructure\Model\Message\Entity\DoctrineMessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Infrastructure\Model\Service\DoctrineFlusher;
+use App\Model\Domain\Entity\DomainRepository;
+use App\Model\Email\Entity\MessageRepository;
 use App\Model\Flusher;
 use App\Model\EventDispatcher;
 
@@ -14,8 +17,8 @@ return [
             $container->get(EventDispatcher::class)
         );
     },
-    DoctrineDomainRepository::class => function(ContainerInterface $container) {
-        return new DoctrineDomainRepository(
+    MessageRepository::class => function(ContainerInterface $container) {
+        return new DoctrineMessageRepository(
             $container->get(EntityManagerInterface::class)
         );
     },
@@ -24,7 +27,7 @@ return [
             $container->get(\App\Model\Domain\Entity\DomainRepository::class)
         );
     },
-    \App\Model\Domain\Entity\DomainRepository::class => function(ContainerInterface $container) {
+    DomainRepository::class => function(ContainerInterface $container) {
         return new DoctrineDomainRepository($container->get(EntityManagerInterface::class));
     },
 ];
