@@ -9,7 +9,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 return function(App $app, ContainerInterface $container) {
     $app->get('/hello/{name}', Action\Main\MainPageAction::class . ':handle');
 
-    $app->get('/messages', Action\Email\MessagesListAction::class . ':handle');
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
     $app->get('/api/domains', Action\Api\Domain\DomainListAction::class . ':handle');
@@ -17,6 +16,4 @@ return function(App $app, ContainerInterface $container) {
 
     $app->get('/api/{email}/messages', Action\Api\Message\MessagesListAction::class . ':handle');
     $app->get('/api/{id}/source', Action\Api\Message\MessagesSourcesAction::class . ':handle');
-
-    $app->get('/testdb', Action\Main\DBAction::class . ':handle');
 };
