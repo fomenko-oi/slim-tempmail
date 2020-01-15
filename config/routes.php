@@ -12,10 +12,11 @@ return function(App $app, ContainerInterface $container) {
     $app->get('/messages', Action\Email\MessagesListAction::class . ':handle');
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
-    $app->get('/api/domain', Action\Api\Domain\DomainListAction::class . ':handle');
-    $app->post('/api/domain', Action\Api\Domain\DomainStoreAction::class . ':handle');
+    $app->get('/api/domains', Action\Api\Domain\DomainListAction::class . ':handle');
+    $app->post('/api/domains', Action\Api\Domain\DomainStoreAction::class . ':handle');
 
-    $app->get('/api/{email}/message', Action\Api\Message\MessagesListAction::class . ':handle');
+    $app->get('/api/{email}/messages', Action\Api\Message\MessagesListAction::class . ':handle');
+    $app->get('/api/{id}/source', Action\Api\Message\MessagesSourcesAction::class . ':handle');
 
     $app->get('/testdb', Action\Main\DBAction::class . ':handle');
 };

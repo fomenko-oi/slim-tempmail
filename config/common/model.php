@@ -27,6 +27,12 @@ return [
             $container->get(\App\Model\Domain\Entity\DomainRepository::class)
         );
     },
+    \App\Model\Email\UseCase\Source\Handler::class => function(ContainerInterface $container) {
+        return new \App\Model\Email\UseCase\Source\Handler(
+            $container->get(\Ddeboer\Imap\Server::class),
+            $container->get(MessageRepository::class)
+        );
+    },
     DomainRepository::class => function(ContainerInterface $container) {
         return new DoctrineDomainRepository($container->get(EntityManagerInterface::class));
     },

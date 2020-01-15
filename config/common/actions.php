@@ -46,4 +46,10 @@ return [
             $container->get(\App\Http\Validator\Validator::class)
         );
     },
+    \App\Http\Action\Api\Message\MessagesListAction::class => function(ContainerInterface $container) {
+        return new \App\Http\Action\Api\Message\MessagesListAction(
+            $container->get(App\Model\Email\UseCase\Index\Handler::class),
+            $container->get(\App\Infrastructure\Storage\UrlGenerator::class)
+        );
+    },
 ];

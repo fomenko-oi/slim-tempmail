@@ -33,6 +33,15 @@ class DoctrineMessageRepository implements MessageRepository
             ->getQuery()->getResult();
     }
 
+    public function findById(string $id): ?EmailMessage
+    {
+        return $this->repo->createQueryBuilder('m')
+            ->andWhere('m.id = :id')
+            ->setParameter(':id', $id)
+            ->setMaxResults(1)
+            ->getQuery()->getSingleResult();
+    }
+
     public function findByAddress(string $host, string $login)
     {
         return $this->repo->createQueryBuilder('m')
@@ -40,7 +49,7 @@ class DoctrineMessageRepository implements MessageRepository
             ->andWhere('m.receiver = :login')
             ->setParameter(':host', $host)
             ->setParameter(':login', $login)
-            ->orderBy('m.createdAt', 'desc')
+            ->orderBy('m.createdAt', 'asc')
             ->getQuery()->getResult();
     }
 

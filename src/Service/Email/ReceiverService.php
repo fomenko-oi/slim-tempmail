@@ -60,7 +60,7 @@ class ReceiverService
             );
 
             $data->setType($message->getType());
-            $data->setNativeId($message->getId());
+            $data->setNativeId($message->getNumber());
 
             $attachments = $message->getAttachments();
 
