@@ -13,10 +13,8 @@ AppFactory::setContainer($container = (require 'config/container.php')->build())
 
 $app = AppFactory::create();
 
-$app->addRoutingMiddleware();
-$app->addBodyParsingMiddleware();
-$app->addErrorMiddleware(true, true, true);
-
+// Define middlewares
+(require 'config/middlewares.php.php')($app, $container);
 // Define app routes
 (require 'config/routes.php')($app, $container);
 
