@@ -18,10 +18,16 @@ return [
         return new Filesystem($adapter);
     },
 
+    \App\Infrastructure\Storage\UrlGenerator::class => function(ContainerInterface $container) {
+        $config = $container->get('config')['filesystem'];
+
+        return new \App\Infrastructure\Storage\UrlGenerator($config['url']);
+    },
+
     'config' => [
         'filesystem' => [
-            'driver' => 'local',
-            'url' => 'http://localhost:8083/'
+            'driver' => getenv('FILESYSTEM_DRIVER') ?? 'local',
+            'url' => getenv('FILESYSTEM_URL'),
         ]
     ]
 ];
