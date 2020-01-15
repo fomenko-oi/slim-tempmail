@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Setup;
 use Psr\Container\ContainerInterface;
+use App\Infrastructure\Doctrine\Functions\Rand;
 
 return [
     EntityManagerInterface::class => function (ContainerInterface $container) {
@@ -21,6 +22,9 @@ return [
             ),
             false
         );
+
+        $config->addCustomNumericFunction('Rand', Rand::class);
+
         foreach ($params['types'] as $type => $class) {
             if (!DBAL\Types\Type::hasType($type)) {
                 DBAL\Types\Type::addType($type, $class);

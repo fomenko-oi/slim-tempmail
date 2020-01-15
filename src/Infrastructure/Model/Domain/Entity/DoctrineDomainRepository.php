@@ -43,4 +43,12 @@ class DoctrineDomainRepository implements DomainRepository
     {
         $this->em->persist($domain);
     }
+
+    public function random(): Domain
+    {
+        return $this->repo->createQueryBuilder('t')
+            ->orderBy('RAND()')
+            ->setMaxResults(1)
+            ->getQuery()->getSingleResult();
+    }
 }

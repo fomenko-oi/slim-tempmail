@@ -9,6 +9,10 @@ use App\Model\Domain\Entity\DomainRepository;
 use App\Model\Email\Entity\MessageRepository;
 use App\Model\Flusher;
 use App\Model\EventDispatcher;
+use App\Model\User\Service\MailGenerator;
+use App\Infrastructure\Model\User\Service\SimpleMailGenerator;
+use App\Model\User\Service\InboxNameGenerator;
+use App\Infrastructure\Model\User\Service\SimpleInboxNameGenerator;
 
 return [
     Flusher::class => function (ContainerInterface $container) {
@@ -35,5 +39,14 @@ return [
     },
     DomainRepository::class => function(ContainerInterface $container) {
         return new DoctrineDomainRepository($container->get(EntityManagerInterface::class));
+    },
+    InboxNameGenerator::class => function(ContainerInterface $container) {
+        return new SimpleInboxNameGenerator();
+    },
+    MailGenerator::class => function(ContainerInterface $container) {
+        return new SimpleMailGenerator(
+            $container->get(DomainRepository::class),
+            $container->get(InboxNameGenerator::class),
+        );
     },
 ];

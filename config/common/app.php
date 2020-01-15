@@ -5,6 +5,9 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use Symfony\Component\Validator\Validation;
 use Slim\Middleware\Session;
 use Psr\Container\ContainerInterface;
+use App\Http\Middleware\UserEmailMiddleware;
+use App\Model\User\Entity\UserProvider;
+use App\Model\User\Service\MailGenerator;
 
 return [
     ValidatorInterface::class => function () {
@@ -20,7 +23,13 @@ return [
             'lifetime' => '1 hour'
         ]);
     },
-    $container->set('session', function () {
+    'session' => function(ContainerInterface $container) {
         return new \SlimSession\Helper();
-    })
+    },
+    UserEmailMiddleware::class => function(ContainerInterface $container) {
+        return new UserEmailMiddleware(
+            $container->get(UserProvider::class),
+            $container->get(MailGenerator::class)
+        );
+    },
 ];
