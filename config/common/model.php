@@ -44,6 +44,14 @@ return [
             $container->get(UserProvider::class)
         );
     },
+    \App\Model\Email\UseCase\Remove\Handler::class => function(ContainerInterface $container) {
+        return new \App\Model\Email\UseCase\Remove\Handler(
+            $container->get(\Ddeboer\Imap\Server::class),
+            $container->get(MessageRepository::class),
+            $container->get(EntityManagerInterface::class),
+            $container->get(Flusher::class)
+        );
+    },
     DomainRepository::class => function(ContainerInterface $container) {
         return new DoctrineDomainRepository($container->get(EntityManagerInterface::class));
     },

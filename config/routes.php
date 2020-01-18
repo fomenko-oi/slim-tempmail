@@ -4,8 +4,6 @@ use Slim\App;
 use Psr\Container\ContainerInterface;
 use App\Http\Action;
 use App\Http\Middleware\UserEmailMiddleware;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 return function(App $app, ContainerInterface $container) {
     $app->get('/hello/{name}', Action\Main\MainPageAction::class . ':handle');
@@ -22,5 +20,6 @@ return function(App $app, ContainerInterface $container) {
     $app->post('/api/domains', Action\Api\Domain\DomainStoreAction::class . ':handle');
 
     $app->get('/api/{email}/messages', Action\Api\Message\MessagesListAction::class . ':handle');
-    $app->get('/api/{id}/source', Action\Api\Message\MessagesSourcesAction::class . ':handle');
+    $app->get('/api/message/{id}/source', Action\Api\Message\MessagesSourcesAction::class . ':handle');
+    $app->delete('/api/message/{inbox}/{id}', Action\Api\Message\RemoveMessageAction::class . ':handle');
 };
