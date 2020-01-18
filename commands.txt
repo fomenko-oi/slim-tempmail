@@ -1,0 +1,8 @@
+## handling incoming messages and save it to database
+php bin/app.php mail:messages:handle
+
+## send test message
+php bin/app.php mail:messages:send {email} {body} --subject={subject} --attachment={attachment}
+
+-> example:
+    php bin/app.php mail:messages:send admin@admin.test 'Test menssage. Try with attachment' --subject='custom message. Last test' --attachment=public/images/gplay_header.svg

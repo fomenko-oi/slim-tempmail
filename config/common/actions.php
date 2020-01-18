@@ -45,6 +45,12 @@ return [
             $container->get(MessageRepository::class)
         );
     },
+    \App\Http\Action\User\Cabinet\DetectLanguageAction::class => function(ContainerInterface $container) {
+        return new \App\Http\Action\User\Cabinet\DetectLanguageAction(
+            $container->get(\App\Model\User\Service\Language\LanguageManager::class),
+            $container->get('view')
+        );
+    },
     SetRandomEmailAction::class => function(ContainerInterface $container) {
         return new SetRandomEmailAction(
             $container->get(App\Model\Email\UseCase\Random\Handler::class)

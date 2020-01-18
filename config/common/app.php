@@ -8,6 +8,8 @@ use Psr\Container\ContainerInterface;
 use App\Http\Middleware\UserEmailMiddleware;
 use App\Model\User\Entity\UserProvider;
 use App\Model\User\Service\MailGenerator;
+use App\Http\Middleware\UserLanguageMiddleware;
+use App\Model\User\Service\Language\LanguageManager;
 
 return [
     ValidatorInterface::class => function () {
@@ -30,6 +32,11 @@ return [
         return new UserEmailMiddleware(
             $container->get(UserProvider::class),
             $container->get(MailGenerator::class)
+        );
+    },
+    UserLanguageMiddleware::class => function(ContainerInterface $container) {
+        return new UserLanguageMiddleware(
+            $container->get(LanguageManager::class)
         );
     },
 ];
