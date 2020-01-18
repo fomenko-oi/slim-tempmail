@@ -1,5 +1,26 @@
 <?php
 
 return [
-    'hello' => 'world'
+    'mailbox_header' => 'Your Temporary Email Address',
+    'mailbox_description' => 'Forget about spam, advertising mailings, hacking and attacking robots. Keep your real mailbox clean and secure. Temp Mail provides temporary, secure, anonymous, free, disposable email address.',
+    'copy' => 'Copy',
+    'refresh' => 'Refresh',
+    'change' => 'Change',
+    'delete' => 'Delete',
+    'sender' => 'SENDER',
+    'subject' => 'SUBJECT',
+    'view' => 'VIEW',
+    'date' => 'Date',
+    'empty_inbox' => 'Your inbox is empty',
+    'waiting_emails' => 'Waiting for incoming emails',
+    'intro_header' => 'What is Disposable Temporary E-mail?',
+    'intro_description' => '<b>Disposable email</b> - is a service that allows to receive email at a temporary address that self-destructed after a certain time elapses. It is also known by names like : tempmail, 10minutemail, throwaway email, fake-mail or trash-mail. Many forums, Wi-Fi owners, websites and blogs ask visitors to register before they can view content, post comments or download something. Temp-Mail - is most advanced throwaway email service that helps you avoid spam and stay safe.',
+    'articles' => 'Articles',
+    'privacy' => 'Privacy policy',
+    'faq' => 'Faq',
+    'contacts' => 'Contacts',
+    'reviews' => 'Reviews',
+    'back_to_list' => 'Back to list',
+    'api' => 'api',
+    'attachments' => 'Attachments',
 ];

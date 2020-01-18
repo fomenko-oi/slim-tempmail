@@ -9,7 +9,18 @@ use App\Http\Action\User\Cabinet\DetectLanguageAction;
 use Slim\Routing\RouteCollectorProxy;
 
 return function(App $app, ContainerInterface $container) {
-    $app->get('/hello/{name}', Action\Main\MainPageAction::class . ':handle');
+    $app->group('', function(RouteCollectorProxy $group) {
+        $group->get('/{lang}/', Action\Main\MainPageAction::class . ':handle')->setName('index');
+
+        $group->post('/{lang}/user/messages', Action\User\Mailbox\MessagesListAction::class . ':handle');
+        $group->get('/{lang}/message/{message}', Action\User\Mailbox\MessageDetailsAction::class . ':handle');
+        $group->put('/{lang}/user/set_email', Action\User\Mailbox\ChangeEmailAction::class . ':handle');
+        $group->put('/{lang}/user/random_email', Action\User\Mailbox\SetRandomEmailAction::class . ':handle');
+        $group->get('/{lang}/user/current_email', Action\User\Mailbox\DisplayCurrentEmailAction::class . ':handle');
+    })
+        ->add($container->get(UserEmailMiddleware::class))
+        ->add($container->get(UserLanguageMiddleware::class))
+    ;
 
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
@@ -19,12 +30,6 @@ return function(App $app, ContainerInterface $container) {
         ->add($container->get(UserEmailMiddleware::class))
         ->add($container->get(UserLanguageMiddleware::class))
     ;
-
-    $app->group('/', function(\Slim\Routing\RouteCollectorProxy $group) {
-        $group->put('user/set_email', Action\User\Mailbox\ChangeEmailAction::class . ':handle');
-        $group->put('user/random_email', Action\User\Mailbox\SetRandomEmailAction::class . ':handle');
-        $group->get('user/current_email', Action\User\Mailbox\DisplayCurrentEmailAction::class . ':handle');
-    })->add($container->get(UserEmailMiddleware::class));
 
     $app->get('/api/domains', Action\Api\Domain\DomainListAction::class . ':handle');
     $app->post('/api/domains', Action\Api\Domain\DomainStoreAction::class . ':handle');

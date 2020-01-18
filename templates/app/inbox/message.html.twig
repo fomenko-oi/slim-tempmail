@@ -1,0 +1,116 @@
+{% extends 'layouts/frontend.html.twig' %}
+
+{% block content %}
+    <!-- Left banner block -->
+    <div class="col d-none d-sm-none hidden-xs-sm-md-lg visable-xl">
+        <div class="ads-box ad-block-300X600 ad-block-left-300X600">
+        </div>
+    </div>
+    <!-- End Left banner block -->
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+        <div class="beforeContentBannerBl hidden-xs-sm">
+            <div class="ads-box ad-block-728X90 ad-block-728X90-before-mail-block">
+            </div>
+        </div>
+        <div class="tm-content">
+            <div class="tm-content">
+                <div class="inboxWarpMain">
+                    <div class="inbox-area onemail" data-id="{{ message.id }}">
+                        <div class="inbox-header email-view">
+                            <div class="col-h-data">
+                                <a href="/{{ lang }}" class="back-btn-link">
+                                    <svg width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.66699 7.75L2.50033 12.75L6.66699 17.75" stroke="#CDCDD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    {{ 'back_to_list'|trans }}
+                                </a>
+                            </div>
+                            <div class="col-h-data hidden-xs-sm">
+                                <div class="btn-warp-list webAttachments">
+                                    <div class="attachmentsBtn ">
+
+                                        <a href="javascript:void(0)" class="btn-link">{{ 'attachments'|trans }}</a>
+                                        <ul class="attachments">
+                                            {% for attachment in message.files %}
+                                                <li class="attachmentLi">
+                                                    <span class="attachmentName" title="{{ attachment.name }}">{{ attachment.name }}</span>
+                                                    <a href="javascript:void(0)" data-attid="0" data-attname="" data-mailid="{{ attachment.id }}" class="attachmentDownloadBtn" title="{{ 'download'|trans }}">
+                                                        <img src="/images/icons/download.svg">
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+
+                                    <a href="javascript:void(0);" class="no-ajaxy btn-link downloadMail">{{ 'download'|trans }}</a>
+                                    <a href="javascript:void(0);" class="btn-link deleteMail">{{ 'delete'|trans }}</a>
+                                    <a href="javascript:void(0);" class="btn-link no-ajaxy getSource">{{ 'source'|trans }}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inbox-data-content">
+                            <div class="inbox-data-content-header">
+                                <div class="user-data-name 0">
+
+                                    <figure class="first-letters"></figure>
+                                    <p class="from-name"></p>
+                                    <p class="from-email">{{ message.sender }}</p>
+                                </div>
+                                <div class="user-data-time">
+                                    <div class="date-time-text">{{ 'date'|trans }}:</div>
+                                    <div class="user-data-time-data" data-date="{{ message.date|date('U') }}">{{ message.date|date('d-m-Y G:i:s') }}</div>
+                                </div>
+                            </div>
+                            <div class="user-data-subject">
+                                <small>{{ 'subject'|trans|capitalize }}:</small>
+                                <h4>{{ message.subject }}</h4>
+                            </div>
+                            <div class="inbox-data-content-intro">
+                                <pre>{{ message.body|raw }}</pre>
+                            </div>
+
+                            <div class="d-none visable-xs-sm mobileAttachments">
+                                <div class="attachmentsBtn ">
+                                    <a href="javascript:void(0)" class="btn-link">{{ 'attachments'|trans }}</a>
+                                    <ul class="attachments">
+                                        {% for attachment in message.files %}
+                                            <li class="attachmentLi">
+                                                <span class="attachmentName" title="{{ attachment.name }}">{{ attachment.name }}</span>
+                                                <a href="javascript:void(0)" data-attid="0" data-attname="" data-mailid="{{ attachment.id }}" class="attachmentDownloadBtn" title="{{ 'download'|trans }}">
+                                                    <img src="/images/icons/download.svg">
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div></div>
+                        </div>
+
+                        <div class="bottom-btn-header d-none visable-xs-sm">
+                            <a href="javascript:void(0);" class="btn-link no-ajaxy getSource">{{ 'source'|trans }}</a>
+                            <a href="javascript:void(0);" class="btn-link btn-delete deleteMail">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 7.5V8.25C20.5 9.07843 19.8284 9.75 19 9.75L17.11 19.1925C16.8992 20.2432 15.9767 20.9995 14.905 21H9.595C8.52334 20.9995 7.60076 20.2432 7.39 19.1925L5.5 9.75C4.67157 9.75 4 9.07843 4 8.25V7.5C4 6.67157 4.67157 6 5.5 6H19C19.8284 6 20.5 6.67157 20.5 7.5ZM10 4.5H14.5C14.9142 4.5 15.25 4.16421 15.25 3.75C15.25 3.33579 14.9142 3 14.5 3H10C9.58579 3 9.25 3.33579 9.25 3.75C9.25 4.16421 9.58579 4.5 10 4.5Z" fill="white"></path>
+                                </svg>
+                            </a>
+                            <a href="javascript:void(0);" class="no-ajaxy btn-link downloadMail">{{ 'download'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inbox SEO block -->
+                <div class="mid-intro-text">
+                    <h1>{{ 'intro_header'|trans }}</h1>
+                    <p>{{ 'intro_description'|trans|raw }}</p>
+                </div>
+                <!-- End Inbox SEO block -->
+            </div>
+        </div>
+    </div>
+    <!-- Right banner block -->
+    <div class="col d-none d-sm-none hidden-xs-sm-md-lg visable-xl">
+        <div class="ads-box ad-block-300X600 ad-block-right-300X600">
+        </div>
+    </div>
+    <!-- End Right banner block -->
+{% endblock %}

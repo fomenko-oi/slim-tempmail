@@ -2,46 +2,46 @@
     <clipPath id="a">
       <path fill-opacity=".7" d="M124 0h496v496H124z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M102.4 0h708.7v708.7H102.4z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M0 0h666v666H0z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M250 0h500v500H250z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M186 0h496v496H186z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M0 0h512v512H0z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M177.2 0h708.6v708.7H177.2z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M0 0h512v512H0z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M119 7.3h490.7V498H119z"/>
     </clipPath>
-  
+
     <clipPath id="a">
       <path fill-opacity=".7" d="M177.2 0h708.6v708.7H177.2z"/>
     </clipPath>
-  
+
     <path id="a" fill="#ffde00" d="M1-.3L-.7.8 0-1 .6.8-1-.3z"/>
   </defs><symbol id="ar" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" clip-path="url(#a)" transform="translate(-128) scale(1.0321)">
     <path fill="#199d00" d="M0 0h744v496H0z"/>
     <path fill="#fff" d="M187.5 140.6c-.8 11.6-1.9 32 8 34.1 11.9 1.1 5.3-20.2 9.6-24 .9-2 2.4-2 2.5.5v18c-.1 6 3.7 7.6 6.7 8.9 3.2-.3 5.2-.2 6.5 2.8l1.4 31.3s7.3 2 7.6-17.6c.4-11.5-2.3-21.2-.7-23.4 0-2.2 2.8-2.3 4.8-1.3 3.1 2.2 4.5 5 9.3 3.8 7.4-2 11.8-5.6 12-11.2a51 51 0 0 0-3.4-16.1c.3-1-1.5-3.5-1.1-4.5 1.3 2 3.3 1.9 3.8 0-1.3-4.2-3.2-8.1-6.4-9.8-2.6-2.3-6.4-1.8-7.8 3a26 26 0 0 0 6 17.3 17 17 0 0 1 1.5 8.7c-2.1 1.3-4.2.7-6-1.1 0 0-5.9-4.5-5.9-5.4 1.6-10 .4-11.1-.5-13.9-.6-3.8-2.4-5-3.9-7.6-1.5-1.6-3.4-1.6-4.4 0-2.6 4.5-1.4 14.1.5 18.4 1.4 4 3.4 6.5 2.4 6.5-.8 2.2-2.4 1.7-3.6-.9a61.2 61.2 0 0 1-2.1-16.9c-.5-4.5-1-14-4-16.4-1.8-2.4-4.5-1.2-5.4 1a80 80 0 0 0 .3 13c2 7 2.6 13.4 3.6 20.7.3 9.8-5.7 4.3-5.4-.6 1.4-6.3 1-16.3-.2-18.8-1-2.5-2.1-3.1-4.4-2.7-2-.2-6.7 5-8 13.8 0 0-1.2 4.5-1.7 8.4-.7 4.5-3.6 7.7-5.7-.6-1.8-6-2.9-20.9-5.9-17.4z"/>
@@ -62,7 +62,7 @@
     <path fill="#209000" d="M468.2 363.3c9 .4 17.6.1 26.6.6 1.7 1.3.5 4.8-.6 4.5l-7.6-.2c0-2.9-7.5-2.4-7.2.1-4 .5-7.6-.1-11.6-.3-1.2-1.5-1-4.1.4-4.7z"/>
   </g>
 </symbol><symbol id="cs" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#a)" transform="translate(-74) scale(.722)">
     <path fill="#e80000" d="M0 0h1063v708.7H0z"/>
     <path fill="#fff" d="M0 0h1063v354.3H0z"/>
@@ -77,7 +77,7 @@
   <path d="M0 0h512v170.7H0z"/>
   <path fill="#d00" d="M0 170.7h512v170.6H0z"/>
 </symbol><symbol id="el" viewBox="0 0 512 512">
-  
+
   <g clip-path="url(#a)" transform="scale(.77)">
     <g fill-rule="evenodd" stroke-width="1pt">
       <path fill="#0d5eaf" d="M0 0h999v74H0z"/>
@@ -96,7 +96,7 @@
     </g>
   </g>
 </symbol><symbol id="en" viewBox="0 0 512 512">
-  
+
   <g clip-path="url(#a)" transform="translate(-256) scale(1.024)">
     <g stroke-width="1pt">
       <path fill="#012169" d="M0 0h1000v500H0z"/>
@@ -652,7 +652,7 @@
   <path fill="none" stroke="#000" stroke-width=".2" d="M326.7 231v-.1"/>
   <path fill="none" stroke="#000" stroke-width="0" d="M333.7 231.5v-1.2m-.6 1.3v-1.3m-.5 1.3v-1.3"/>
 </symbol><symbol id="fa" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" clip-path="url(#a)" transform="translate(-192) scale(1.0321)">
     <path fill="#fff" d="M0 0h868.1v496H0z"/>
     <path fill="#da0000" d="M0 333.1h868.1v163H0z"/>
@@ -876,7 +876,7 @@
     <path fill="#f31830" d="M341.3 0H512v512H341.3z"/>
   </g>
 </symbol><symbol id="he" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" clip-path="url(#a)">
     <path fill="#fff" d="M619.4 512H-112V0h731.4z"/>
     <path fill="#00c" d="M619.4 115.2H-112V48h731.4zm0 350.5H-112v-67.2h731.4zm-483-275l110.1 191.6L359 191.6l-222.6-.8z"/>
@@ -902,13 +902,13 @@
     <path fill="#ce2b37" d="M341.3 0H512v512H341.3z"/>
   </g>
 </symbol><symbol id="ja" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#a)" transform="translate(-128) scale(.72249)">
     <path fill="#fff" d="M0 0h1063v708.7H0z"/>
     <ellipse cx="523.1" cy="344.1" fill="#d30000" rx="194.9" ry="194.9" transform="translate(-59.7 -34.5) scale(1.1302)"/>
   </g>
 </symbol><symbol id="ko" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" clip-path="url(#a)">
     <path fill="#fff" d="M610.6 511.6h-730.2V-.4h730.2z"/>
     <path fill="#fff" d="M251.9 256a112.5 112.5 0 1 1-225 0 112.5 112.5 0 1 1 225 0z"/>
@@ -1017,7 +1017,7 @@
   <path fill="#b40a2d" d="M0 153.6h512v204.8H0z"/>
   <path fill="#ecc81d" d="M255.9 163.4l60.2 185.2-157.6-114.5h194.8L195.7 348.6z"/>
 </symbol><symbol id="sv" viewBox="0 0 512 512">
-  
+
   <g clip-path="url(#a)" transform="translate(-124.1 -7.6) scale(1.0433)">
     <g fill-rule="evenodd" stroke-width="1pt">
       <path fill="#006aa7" d="M2.9 7.6h245.4v196.3H2.9zm0 294.1h245.4V498H2.9z"/>
@@ -1040,19 +1040,19 @@
     <path fill="#e30a17" d="M355.3 264c0 56.5-46.6 102.3-104.1 102.3s-104-45.8-104-102.3 46.5-102.3 104-102.3 104 45.8 104 102.3z"/>
     <path fill="#fff" d="M374.1 204.2l-1 47.3-44.2 12 43.5 15.5-1 43.3 28.3-33.8 42.9 14.8-24.8-36.3 30.2-36.1-46.4 12.8-27.5-39.5z"/>
   </g>
-</symbol><symbol id="uk" viewBox="0 0 512 512">
+</symbol><symbol id="ua" viewBox="0 0 512 512">
   <g fill-rule="evenodd" stroke-width="1pt">
     <path fill="#ffd500" d="M0 0h512v512H0z"/>
     <path fill="#005bbb" d="M0 0h512v256H0z"/>
   </g>
 </symbol><symbol id="vi" viewBox="0 0 512 512">
-  
+
   <g fill-rule="evenodd" clip-path="url(#a)" transform="translate(-128) scale(.72249)">
     <path fill="#ec0015" d="M0 0h1063v708.7H0z"/>
     <path fill="#ff0" d="M661 527.5l-124-92.6-123.3 93.5 45.9-152-123.2-93.8 152.4-1.3L536 129.8 584.3 281l152.4.2-122.5 94.7L661 527.5z"/>
   </g>
 </symbol><symbol id="zh" viewBox="0 0 512 512">
-  
+
   <path fill="#de2910" d="M0 0h512v512H0z"/>
   <use width="30" height="20" transform="matrix(76.8 0 0 76.8 128 128)" xlink:href="#a"/>
   <use width="30" height="20" transform="rotate(-121 142.6 -47) scale(25.5827)" xlink:href="#a"/>

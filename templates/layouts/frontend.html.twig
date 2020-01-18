@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block head %}
+        <title>Temp Mail - Disposable Temporary Email</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Keep spam out of your mail and stay safe - just use a disposable temporary email address! Protect your personal email address from spam with Temp-mail" />
+        <meta name="keywords" content="free, temporary, email, disposable, mail, email address" />
+
+        <link rel="apple-touch-icon" href="/images/icon-temp-mail-mobile@2.png">
+        <link rel="android-touch-icon" href="/images/icon-temp-mail-mobile.png" />
+        <link href="images/favicon.ico" rel="shortcut icon">
+
+        {% for language in languages %}
+            <link rel="alternate" hreflang="{{ language }}" href="/{{ language }}/" />
+        {% endfor %}
+
+        <link rel="stylesheet" href="/css/theme-main.css@v=11.css" />
+        <link rel="stylesheet" href="/css/smart-app-banner.css@v=3.css" />
+
+        <style>
+            img {
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+
+            img[data-src] {
+                opacity: 0;
+            }
+            #loader{width:100%;height:5px;position:relative;display: none}
+            #progress{position:relative;width:0;height:100%;background-color:#00b22d}
+        </style>
+    {% endblock %}
+</head>
+<body>
+
+<div id="loader">
+    <div id="progress" style="width: 0%;"></div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col align-v-mid hidden-xs-sm"></div>
+
+            <div class="col align-v-mid align-content-center">
+                <figure class="brand-logo">
+                    <a href="https://temp-mail.org/en/" class="logo thide no-ajaxy">Temp Mail</a>
+                </figure>
+            </div>
+            <div class="col align-v-mid align-content-right">
+                <div class="language-dropdown">
+                    <div class="dropup langbox rcol1">
+                        <button type="button" class="lang-select dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg class="img-flag"><use href="/images/flags/combined.svg#{{ lang }}" /></svg>
+                            <span class="lang-text">{{ lang }}</span>
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            {% for language in languages %}
+                                <li style="text-align:left;">
+                                    <a href="/{{ language }}/" class="no-ajaxy">
+                                        <svg class="img-flag" style="width: 16px; height: 16px; border-radius: 50%;">
+                                            <use href="/images/flags/combined.svg#{{ language }}" />
+                                        </svg>
+                                        <span class="lang-text">{{ language }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="section-top-qr">
+    <div class="container">
+        <div class="row ">
+            <div class="col hidden-xs-sm-md-lg">
+                <div class="ads-box ad-block-336X280 ad-block-left-336X280">
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                <div class="temp-emailbox">
+                    <h2>{{ 'mailbox_header'|trans }}</h2>
+                    <form>
+                        <div class="input-box-col">
+                            <div class="input-warp">
+                                <input id="mail" type="text" onclick="select(this);" data-original-title="Your Temporary Email Address" data-placement="bottom" data-value="Loading" value="{{ user_email }}" class="emailbox-input opentip disabledText" readonly />
+
+                                <button type="button" class="btn-rds icon-btn btn-l-gary popover-qr"
+                                        data-base-url="https://temp-mail.org/en"
+                                        data-utm="&utm_source=qrcode&utm_medium=website&utm_campaign=website">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2219 16.8889H6.2219C5.73098 16.8889 5.33301 16.4909 5.33301 16C5.33301 15.5091 5.73098 15.1111 6.2219 15.1111H14.2219C14.7128 15.1111 15.1108 14.7132 15.1108 14.2222V6.22223C15.1108 5.73131 15.5088 5.33334 15.9997 5.33334C16.4906 5.33334 16.8886 5.73131 16.8886 6.22223V14.2222C16.8886 15.695 15.6947 16.8889 14.2219 16.8889ZM13.333 12.4445V7.11112C13.333 6.12928 12.5371 5.33334 11.5552 5.33334H7.11079C6.12895 5.33334 5.33301 6.12928 5.33301 7.11112V11.5556C5.33301 12.5374 6.12895 13.3333 7.11079 13.3333H8.88856C9.37948 13.3333 9.77745 12.9354 9.77745 12.4445C9.77745 11.9535 9.37948 11.5556 8.88856 11.5556H7.11079V7.11112H11.5552V12.4445C11.5552 12.9354 11.9532 13.3333 12.4441 13.3333C12.935 13.3333 13.333 12.9354 13.333 12.4445ZM26.6663 11.5556V7.11112C26.6663 6.12928 25.8704 5.33334 24.8886 5.33334H20.4441C19.4623 5.33334 18.6663 6.12928 18.6663 7.11112V8.8889C18.6663 9.37982 19.0643 9.77779 19.5552 9.77779C20.0461 9.77779 20.4441 9.37982 20.4441 8.8889V7.11112H24.8886V11.5556H19.5552C19.0643 11.5556 18.6663 11.9535 18.6663 12.4445C18.6663 12.9354 19.0643 13.3333 19.5552 13.3333H24.8886C25.8704 13.3333 26.6663 12.5374 26.6663 11.5556ZM13.333 24.8889V23.1111C13.333 22.6202 12.935 22.2222 12.4441 22.2222C11.9532 22.2222 11.5552 22.6202 11.5552 23.1111V24.8889H7.11079V20.4445H12.4441C12.935 20.4445 13.333 20.0465 13.333 19.5556C13.333 19.0646 12.935 18.6667 12.4441 18.6667H7.11079C6.12895 18.6667 5.33301 19.4626 5.33301 20.4445V24.8889C5.33301 25.8707 6.12895 26.6667 7.11079 26.6667H11.5552C12.5371 26.6667 13.333 25.8707 13.333 24.8889ZM26.6663 24.8889V20.4445C26.6663 19.4626 25.8704 18.6667 24.8886 18.6667H23.1108C22.6199 18.6667 22.2219 19.0646 22.2219 19.5556C22.2219 20.0465 22.6199 20.4445 23.1108 20.4445H24.8886V24.8889H20.4441V19.5556C20.4441 19.0646 20.0461 18.6667 19.5552 18.6667C19.0643 18.6667 18.6663 19.0646 18.6663 19.5556V24.8889C18.6663 25.8707 19.4623 26.6667 20.4441 26.6667H24.8886C25.8704 26.6667 26.6663 25.8707 26.6663 24.8889ZM16.8886 25.7778V19.5556C16.8886 19.0646 16.4906 18.6667 15.9997 18.6667C15.5088 18.6667 15.1108 19.0646 15.1108 19.5556V25.7778C15.1108 26.2687 15.5088 26.6667 15.9997 26.6667C16.4906 26.6667 16.8886 26.2687 16.8886 25.7778ZM26.6663 16C26.6663 15.5091 26.2684 15.1111 25.7775 15.1111H19.5552C19.0643 15.1111 18.6663 15.5091 18.6663 16C18.6663 16.4909 19.0643 16.8889 19.5552 16.8889H25.7775C26.2684 16.8889 26.6663 16.4909 26.6663 16Z" fill="#ffffff"></path>
+                                    </svg>
+                                    <span>QR code</span>
+                                </button>
+                                <div class="qrPopoverBl " style="display: none">
+                                    <div class="qr-popover-arrow"></div>
+                                    <div id="qrImageBl"></div>
+                                </div>
+
+                                <button type="button" class="btn-rds icon-btn bg-theme d-none visable-xs-sm click-to-copy copyIconGreenBtn" data-clipboard-action="copy" data-clipboard-target="#mail" >
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.7397 9.91727V19.9465C24.7397 21.0543 23.8416 21.9524 22.7338 21.9524C22.1799 21.9524 21.7309 21.5033 21.7309 20.9494V14.27C21.7315 13.9643 21.6085 13.6713 21.3899 13.4576L17.8997 10.0075C17.2774 9.37513 16.4301 9.01459 15.5429 9.00461H11.7017C11.1478 9.00461 10.6987 8.55559 10.6987 8.00169V6.87841C10.6987 6.11327 11.0034 5.37962 11.5454 4.83953C12.0873 4.29943 12.822 3.99735 13.5872 4.00002H18.9127C19.6658 4.00761 20.3859 4.31006 20.9186 4.84247L23.9273 7.85125C24.4625 8.40421 24.7549 9.14788 24.7397 9.91727ZM19.8855 13.929L16.8768 10.9202C16.3453 10.386 15.6244 10.0832 14.8709 10.0777H9.54539C7.95407 10.0833 6.66698 11.3748 6.66699 12.9662V25.1116C6.66699 26.7068 7.96018 28 9.55541 28H17.8697C19.4531 27.9835 20.7281 26.6951 20.728 25.1116V15.9348C20.7358 15.1776 20.4479 14.4472 19.9257 13.8989L19.8855 13.929Z" fill="#ffffff"></path>
+                                    </svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-box-col hidden-xs-sm">
+                            <button type="button" class="btn-rds icon-btn bg-theme click-to-copy copyIconGreenBtn" data-clipboard-action="copy" data-clipboard-target="#mail" >
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.7397 9.91727V19.9465C24.7397 21.0543 23.8416 21.9524 22.7338 21.9524C22.1799 21.9524 21.7309 21.5033 21.7309 20.9494V14.27C21.7315 13.9643 21.6085 13.6713 21.3899 13.4576L17.8997 10.0075C17.2774 9.37513 16.4301 9.01459 15.5429 9.00461H11.7017C11.1478 9.00461 10.6987 8.55559 10.6987 8.00169V6.87841C10.6987 6.11327 11.0034 5.37962 11.5454 4.83953C12.0873 4.29943 12.822 3.99735 13.5872 4.00002H18.9127C19.6658 4.00761 20.3859 4.31006 20.9186 4.84247L23.9273 7.85125C24.4625 8.40421 24.7549 9.14788 24.7397 9.91727ZM19.8855 13.929L16.8768 10.9202C16.3453 10.386 15.6244 10.0832 14.8709 10.0777H9.54539C7.95407 10.0833 6.66698 11.3748 6.66699 12.9662V25.1116C6.66699 26.7068 7.96018 28 9.55541 28H17.8697C19.4531 27.9835 20.7281 26.6951 20.728 25.1116V15.9348C20.7358 15.1776 20.4479 14.4472 19.9257 13.8989L19.8855 13.929Z" fill="#ffffff"></path>
+                                </svg>
+                                <span>{{ 'copy'|trans }}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="temp-emailbox-text">
+                    <p>{{ 'mailbox_description'|trans }}</p>
+                </div>
+            </div>
+            <div class="col align-content-right hidden-xs-sm-md-lg">
+                <div class="ads-box ad-block-336X280 ad-block-right-336X280"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section-btn-header" style="z-index: 100; position: relative; top: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto justify-content-center">
+                <button id="click-to-copy" data-clipboard-action="copy" data-clipboard-target="#mail" class="no-ajaxy tm-btn btn-gray click-to-copy">
+                    <span class="icon-control control-copy"></span> {{ 'copy'|trans }}
+                </button>
+
+                <a href="javascript:;" id="click-to-refresh" class="no-ajaxy tm-btn btn-gray click-to-refresh">
+                    <span class="icon-control control-refresh"></span> {{ 'refresh'|trans }}
+                </a>
+
+                <a href="https://temp-mail.org/en/change" id="click-to-change" class="no-ajaxy tm-btn btn-gray click-to-change">
+                    <span class="icon-control control-edit"></span> {{ 'change'|trans }}
+                </a>
+
+                <button id="click-to-delete" class="no-ajaxy tm-btn btn-gray click-to-delete">
+                    <span class="icon-control control-del"></span> {{ 'delete'|trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <div class="row ">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>
+
+{% block footer %}
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-ms-12 col-md-12 col-lg-12">
+                    <div class="footer-box">
+                        <nav class="footer-nav">
+                            <ul>
+                                <li><a href="/blog" title="{{ 'articles'|trans }}" class="no-ajaxy">{{ 'articles'|trans }}</a></li>
+                                <li><a href="/privacy-policy" title="{{ 'privacy'|trans }}">{{ 'privacy'|trans }}</a></li>
+                                <li><a href="/en/faq" title="{{ 'faq'|trans }}">{{ 'faq'|trans }}</a></li>
+                                <li><a href="/en/contact" title="{{ 'contacts'|trans }}">{{ 'contacts'|trans }}</a></li>
+                                <li><a href="/en/feedback" title="{{ 'reviews'|trans }}" class="no-ajaxy">{{ 'reviews'|trans }}</a></li>
+                                <li><a href="/en/api/" title="{{ 'api'|trans }}">{{ 'api'|trans }}</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="copyright-box">
+                        <div class="footer-btn-warp align-content-center">
+
+                        </div>
+                        <small>© {{ 'now'|date('Y') }} <a href="/">Temp-Mail.org</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+    <script src="https://zeptojs.com/zepto.js"></script>
+    <script>
+        axios.defaults.baseURL = '/{{ lang }}/';
+    </script>
+    <script src="/js/app.js"></script>
+{% endblock %}
+
+</body>
+</html>

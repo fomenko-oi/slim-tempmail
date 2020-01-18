@@ -236,6 +236,11 @@ class EmailMessage
         $this->recordEvent(new FileAttached($file->getId(), $file->getPath(), $file->getName()));
     }
 
+    public function hasAttachments(): bool
+    {
+        return $this->files->count() > 0;
+    }
+
     /**
      * @return \DateTimeImmutable
      */
