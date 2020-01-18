@@ -17,6 +17,7 @@ return function(App $app, ContainerInterface $container) {
         $group->put('/{lang}/user/set_email', Action\User\Mailbox\ChangeEmailAction::class . ':handle');
         $group->put('/{lang}/user/random_email', Action\User\Mailbox\SetRandomEmailAction::class . ':handle');
         $group->get('/{lang}/user/current_email', Action\User\Mailbox\DisplayCurrentEmailAction::class . ':handle');
+        $group->get('/{lang}/user/settings', Action\User\Cabinet\ChangeEmailAction::class . ':handle');
     })
         ->add($container->get(UserEmailMiddleware::class))
         ->add($container->get(UserLanguageMiddleware::class))

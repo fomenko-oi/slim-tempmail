@@ -4,7 +4,7 @@ $('#click-to-delete').click(e => {
             const data = res.data;
 
             if(data.success) {
-                $('input#mail').val(data.data)
+                setEmail(data.data)
             }
         })
 });
@@ -34,6 +34,34 @@ $('#click-to-refresh').click(e => {
             }
         })
 });
+
+$('#new_mail').change(e => {
+    e.preventDefault();
+
+    const host = $('#domain').val();
+    const login = $('#new_mail').val();
+
+    axios.put('/user/set_email', {host, login })
+        .then(res => {
+            const data = res.data;
+
+            if(data.success) {
+                setEmail(`${login}@${host}`);
+                showLoader();
+                $('#new_mail').val(null);
+                $(document).scrollTop(0);
+            }
+        })
+});
+
+$('#changeForm').submit(e => {
+    e.preventDefault();
+});
+
+function setEmail(email)
+{
+    $('input#mail').val(email)
+}
 
 function showLoader()
 {

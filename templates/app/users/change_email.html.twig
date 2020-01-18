@@ -1,0 +1,68 @@
+{% extends 'layouts/frontend.html.twig' %}
+
+{% block content %}
+    <!-- Left banner block -->
+    <div class="col d-none d-sm-none hidden-xs-sm-md-lg visable-xl">
+        <div class="ads-box ad-block-300X600 ad-block-left-300X600">
+        </div>
+    </div>
+    <!-- End Left banner block -->
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+        <div class="beforeContentBannerBl hidden-xs-sm">
+            <div class="ads-box ad-block-728X90 ad-block-728X90-before-mail-block">
+            </div>
+        </div>
+        <div class="tm-content">
+            <div class="tm-content">
+                <div class="inboxWarpMain">
+                    <div class="main-page-content change-email-addressBox">
+                        <div class="bg-header">
+                            <h1>{{ 'change_email'|trans }}</h1>
+                        </div>
+                        <div class="main-page-content-inner mail-form-box">
+                            <p>{{ 'change_email_info'|trans|raw }}</p>
+                            <p>{{ 'change_email_message'|trans|raw }}</p>
+
+                            <div id="error_alert" class="alert alert-warning alert-dismissable hide">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ 'change_email_eror'|trans }}
+                            </div>
+
+                            <br>
+                            <form method="POST" id="changeForm" action="/{{ lang }}/user/settings">
+                                <div class="input-box-warp">
+                                    <input type="text" class="form-control" name="new_mail" id="new_mail" value="" placeholder="Login" minlength="2">
+                                </div>
+                                <div class="input-box-warp" data-select2-id="8">
+                                    <select id="domain" name="domain" class="select-domain" data-select2-id="domain" tabindex="-1" aria-hidden="true">
+                                        {% for domain in domains %}
+                                            <option value="{{ domain.host }}" data-select2-id="2">@{{ domain.host }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="input-box-warp">
+                                    <button id="postbut" type="submit" class="tm-btn bg-theme-light">{{ 'save'|trans }}</button>
+                                </div>
+
+                                <input type="hidden" name="action" id="action" value="changeMail">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inbox SEO block -->
+                <div class="mid-intro-text">
+                    <h1>{{ 'intro_header'|trans }}</h1>
+                    <p>{{ 'intro_description'|trans|raw }}</p>
+                </div>
+                <!-- End Inbox SEO block -->
+            </div>
+        </div>
+    </div>
+    <!-- Right banner block -->
+    <div class="col d-none d-sm-none hidden-xs-sm-md-lg visable-xl">
+        <div class="ads-box ad-block-300X600 ad-block-right-300X600">
+        </div>
+    </div>
+    <!-- End Right banner block -->
+{% endblock %}
