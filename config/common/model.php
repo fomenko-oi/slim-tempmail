@@ -13,6 +13,7 @@ use App\Model\User\Service\MailGenerator;
 use App\Infrastructure\Model\User\Service\SimpleMailGenerator;
 use App\Model\User\Service\InboxNameGenerator;
 use App\Infrastructure\Model\User\Service\SimpleInboxNameGenerator;
+use App\Model\User\Entity\UserProvider;
 
 return [
     Flusher::class => function (ContainerInterface $container) {
@@ -35,6 +36,12 @@ return [
         return new \App\Model\Email\UseCase\Source\Handler(
             $container->get(\Ddeboer\Imap\Server::class),
             $container->get(MessageRepository::class)
+        );
+    },
+    \App\Model\Email\UseCase\Random\Handler::class => function(ContainerInterface $container) {
+        return new \App\Model\Email\UseCase\Random\Handler(
+            $container->get(MailGenerator::class),
+            $container->get(UserProvider::class)
         );
     },
     DomainRepository::class => function(ContainerInterface $container) {

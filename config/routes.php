@@ -13,8 +13,9 @@ return function(App $app, ContainerInterface $container) {
     $app->get('/sendmail/{email}', Action\Email\MessagesSendAction::class . ':handle');
 
     $app->group('/', function() use($app) {
-        $app->put('/user/set_email', Action\User\ChangeEmailAction::class . ':handle');
-        $app->get('/user/current_email', Action\User\DisplayCurrentEmailAction::class . ':handle');
+        $app->put('/user/set_email', Action\User\Mailbox\ChangeEmailAction::class . ':handle');
+        $app->put('/user/random_email', Action\User\Mailbox\SetRandomEmailAction::class . ':handle');
+        $app->get('/user/current_email', Action\User\Mailbox\DisplayCurrentEmailAction::class . ':handle');
     })->add($container->get(UserEmailMiddleware::class));
 
     $app->get('/api/domains', Action\Api\Domain\DomainListAction::class . ':handle');

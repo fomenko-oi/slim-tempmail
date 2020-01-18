@@ -9,6 +9,7 @@ use App\Http\Action\Api\Domain\DomainListAction;
 use App\Http\Action\Api\Domain\DomainStoreAction;
 use App\Infrastructure\Storage\UrlGenerator;
 use App\Http\Validator\Validator;
+use App\Http\Action\User\Mailbox\SetRandomEmailAction;
 
 return [
     MainPageAction::class => function(ContainerInterface $container) {
@@ -34,6 +35,11 @@ return [
         return new MessagesListAction(
             $container->get(App\Model\Email\UseCase\Index\Handler::class),
             $container->get(UrlGenerator::class)
+        );
+    },
+    SetRandomEmailAction::class => function(ContainerInterface $container) {
+        return new SetRandomEmailAction(
+            $container->get(App\Model\Email\UseCase\Random\Handler::class)
         );
     },
 ];

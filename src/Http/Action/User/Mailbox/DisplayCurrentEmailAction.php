@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Action\User;
+namespace App\Http\Action\User\Mailbox;
 
 use App\Http\ValidationException;
 use App\Http\Validator\Validator;
