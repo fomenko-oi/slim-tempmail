@@ -20,7 +20,8 @@
         "league/flysystem": "^1.0",
         "bryanjhv/slim-session": "^4.0",
         "symfony/translation": "^5.0",
-        "symfony/config": "^5.0"
+        "symfony/config": "^5.0",
+        "php-amqplib/php-amqplib": "^2.11"
     },
     "autoload": {
         "psr-4": {

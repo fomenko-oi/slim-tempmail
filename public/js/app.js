@@ -1,3 +1,17 @@
+const socket = io.connect(window.websocketUrl);
+const userMail = window.userMail;
+
+socket.on('connect', function () {
+    console.log(`email.${userMail}`);
+
+    socket.on(`email.${userMail}`, data => {
+        console.log(data);
+
+        alert('new message received');
+        $('#click-to-refresh').click();
+    });
+});
+
 $('#click-to-delete').click(e => {
     axios.put('/user/random_email')
         .then(res => {

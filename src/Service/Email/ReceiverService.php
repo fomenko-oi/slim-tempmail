@@ -7,6 +7,7 @@ use App\Model\Email\Entity\EmailFrom;
 use App\Model\Email\Entity\EmailId;
 use App\Model\Email\Entity\EmailMessage;
 use App\Model\Email\Entity\EmailTo;
+use App\Model\Email\Entity\Event\MessageUploaded;
 use App\Model\Email\Entity\MessageRepository;
 use App\Model\Flusher;
 use Ddeboer\Imap\ConnectionInterface;
@@ -47,6 +48,7 @@ class ReceiverService
         $messages = $mailbox->getMessages(new Unseen());
 
         $count = 0;
+        $events = [];
         foreach ($messages as $message) {
             $to = $message->getTo()[0];
 
@@ -78,13 +80,23 @@ class ReceiverService
                 $data->addFile($dataAttachment = new EmailFile($filePath, $attachment->getFilename(), $attachment->getType()));
             }
 
+            $data->recordEvent(new MessageUploaded(
+                $data->getId(),
+                $data->getHost(),
+                $data->getReceiver(),
+                $data->getSender(),
+                $data->getSubject(),
+                $data->hasAttachments()
+            ));
+
+            $events[] = $data;
             $this->messages->add($data);
 
             $message->markAsSeen();
             $count++;
         }
 
-        $this->flusher->flush();
+        $this->flusher->flush(...$events);
 
         return $count;
     }

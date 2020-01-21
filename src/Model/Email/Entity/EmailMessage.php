@@ -2,6 +2,7 @@
 
 namespace App\Model\Email\Entity;
 
+use App\Model\AggregateRoot;
 use App\Model\Email\Entity\Event\FileAttached;
 use App\Model\Email\Entity\Event\MessageCreated;
 use App\Model\EventTrait;
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="email_messages", indexes={@ORM\Index(name="mail_idx", columns={"host", "receiver"})})
  */
-class EmailMessage
+class EmailMessage implements AggregateRoot
 {
     use EventTrait;
 

@@ -71,6 +71,27 @@ services:
       - SYS_PTRACE
     restart: always
 
+  nodejs:
+    image: node:10.11-jessie
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8084:8000"
+    working_dir: /var/www
+    tty: true
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_ERLANG_COOKIE: SWQOKODSQALRPCLNMEQG
+      RABBITMQ_DEFAULT_USER: rabbit
+      RABBITMQ_DEFAULT_PASS: rabbit
+    ports:
+      - "8085:15672"
+      - "5672:5672"
+    volumes:
+      - ./docker/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+
 volumes:
   mysql:
   maildata:
