@@ -1,13 +1,14 @@
 const socket = io.connect(window.websocketUrl);
-const userMail = window.userMail;
+let userMail = window.userMail;
+let isOldTitle = true;
+let oldTitle = document.title;
+let interval = null;
 
 socket.on('connect', function () {
     console.log(`email.${userMail}`);
 
     socket.on(`email.${userMail}`, data => {
         console.log(data);
-
-        alert('new message received');
         $('#click-to-refresh').click();
     });
 });
@@ -36,6 +37,10 @@ $('#click-to-refresh').click(e => {
                 const mailList = $('.maillist');
                 const dataList = mailList.find('.inbox-dataList');
                 const inboxEmpty = mailList.find('.inbox-empty');
+
+                titleBlink(`${data.count} писем в почтовом ящике`);
+
+                console.log(`${data.count} писем в почтовом ящике`)
 
                 if(data.count > 0) {
                     dataList.html(data.html);
@@ -66,6 +71,9 @@ $('#new_mail').change(e => {
                 $(document).scrollTop(0);
             }
         })
+        .catch(err => {
+            alert(err.response.data.message)
+        })
 });
 
 $('#changeForm').submit(e => {
@@ -74,7 +82,15 @@ $('#changeForm').submit(e => {
 
 function setEmail(email)
 {
-    $('input#mail').val(email)
+    socket.off(`email.${userMail}`);
+
+    $('input#mail').val(email);
+
+    userMail = email.replace('@', '.');
+
+    socket.on(`email.${userMail}`, data => {
+        $('#click-to-refresh').click();
+    });
 }
 
 function showLoader()
@@ -98,3 +114,18 @@ function showLoader()
         progress.css('width', i + '%');
     }, 5)
 }
+
+function titleBlink(newTitle, delay = 700) {
+    if(interval) {
+        clearInterval(interval);
+    }
+    interval = setInterval(() => {
+        document.title = isOldTitle ? oldTitle : newTitle;
+        isOldTitle = !isOldTitle;
+    }, delay);
+}
+
+$(window).focus(function () {
+    clearInterval(interval);
+    $('title').text(oldTitle);
+});
