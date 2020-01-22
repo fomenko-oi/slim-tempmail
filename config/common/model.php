@@ -14,6 +14,8 @@ use App\Infrastructure\Model\User\Service\SimpleMailGenerator;
 use App\Model\User\Service\InboxNameGenerator;
 use App\Infrastructure\Model\User\Service\SimpleInboxNameGenerator;
 use App\Model\User\Entity\UserProvider;
+use App\Model\Email\Entity\FileRepository;
+use App\Infrastructure\Model\Message\Entity\DoctrineFileRepository;
 
 return [
     Flusher::class => function (ContainerInterface $container) {
@@ -24,6 +26,11 @@ return [
     },
     MessageRepository::class => function(ContainerInterface $container) {
         return new DoctrineMessageRepository(
+            $container->get(EntityManagerInterface::class)
+        );
+    },
+    FileRepository::class => function(ContainerInterface $container) {
+        return new DoctrineFileRepository(
             $container->get(EntityManagerInterface::class)
         );
     },

@@ -83,4 +83,20 @@ return [
             $container->get(App\Model\Email\UseCase\Random\Handler::class)
         );
     },
+    \App\Http\Action\User\Mailbox\MessageSourceAction::class => function(ContainerInterface $container) {
+        return new \App\Http\Action\User\Mailbox\MessageSourceAction(
+            $container->get(\App\Model\Email\UseCase\Source\Handler::class)
+        );
+    },
+    \App\Http\Action\User\Mailbox\MessageAttachmentAction::class => function(ContainerInterface $container) {
+        return new \App\Http\Action\User\Mailbox\MessageAttachmentAction(
+            $container->get(MessageRepository::class)
+        );
+    },
+    \App\Http\Action\User\Mailbox\MessageDeleteAction::class => function(ContainerInterface $container) {
+        return new \App\Http\Action\User\Mailbox\MessageDeleteAction(
+            $container->get(\App\Model\Email\UseCase\Remove\Handler::class),
+            $container->get(\App\Model\User\Entity\UserProvider::class)
+        );
+    },
 ];

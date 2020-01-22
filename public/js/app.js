@@ -19,8 +19,26 @@ $('#click-to-delete').click(e => {
             const data = res.data;
 
             if(data.success) {
-                setEmail(data.data)
+                setEmail(data.data);
+                $('#click-to-refresh').click();
             }
+        })
+});
+
+$('a.deleteMail').click(e => {
+    e.preventDefault();
+    const $el = $(e.target).closest('a.deleteMail');
+
+    axios.delete(`${$el.attr('href')}`)
+        .then(res => {
+            const data = res.data;
+
+            if(data.success) {
+                window.history.back();
+            }
+        })
+        .catch(err => {
+            alert(err.response.data.message)
         })
 });
 

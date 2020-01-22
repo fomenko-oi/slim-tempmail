@@ -20,4 +20,7 @@ return [
     'contacts' => 'Контакты',
     'reviews' => 'Отзывы',
     'api' => 'api',
+    'download' => 'Скачать',
+    'source' => 'Исходник',
+    'back_to_list' => 'Назад'
 ];

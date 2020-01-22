@@ -20,7 +20,6 @@ class EmailFile
      */
     private $id;
     /**
-     * @var EmailMessage
      * @ORM\ManyToOne(targetEntity="EmailMessage", inversedBy="files")
      * @ORM\JoinColumn(name="message_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
@@ -60,9 +59,9 @@ class EmailFile
     }
 
     /**
-     * @return \App\Model\Email\Entity\EmailMessage
+     * @return EmailMessage
      */
-    public function getMessage(): \App\Model\Email\Entity\EmailMessage
+    public function getMessage(): EmailMessage
     {
         return $this->message;
     }
