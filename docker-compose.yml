@@ -27,8 +27,12 @@ services:
       dockerfile: php-cli.docker
     volumes:
       - ./:/var/www/html
+      - ./var/supervisor:/var/log/supervisor
     depends_on:
       - mysql
+      - imap-mail
+      - nodejs
+      - rabbitmq
     tty: true
   php-fpm:
     build:
@@ -38,6 +42,9 @@ services:
       - ./:/var/www/html
     depends_on:
       - mysql
+      - imap-mail
+      - nodejs
+      - rabbitmq
 
   storage-nginx:
     build:

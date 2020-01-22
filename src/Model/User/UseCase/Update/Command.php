@@ -13,6 +13,7 @@ class Command
     /**
      * @Assert\NotBlank()
      * @Assert\Length(min="2")
+     * @Assert\NotEqualTo(value="admin")
      */
     public $login;
 }

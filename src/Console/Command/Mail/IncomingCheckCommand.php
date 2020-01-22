@@ -32,7 +32,15 @@ class IncomingCheckCommand extends Command
     {
         $output->writeln('<comment>Begin the process</comment>');
 
-        $count = $this->service->saveUnseenMessages();
+        while(true) {
+            $count = $this->service->saveUnseenMessages();
+
+            if($count > 0) {
+                $output->writeln('<comment>Total handled '.$count.' messages</comment>');
+            }
+
+            sleep(1);
+        }
 
         $output->writeln("<comment>Finish the process. Total handled {$count} messages.</comment>");
 
