@@ -9,7 +9,8 @@ use App\Http\Action\User\Cabinet\DetectLanguageAction;
 use Slim\Routing\RouteCollectorProxy;
 
 return function(App $app, ContainerInterface $container) {
-    $app->get('/', Action\Main\MainPageAction::class . ':handle')->setName('index');
+    $app->get('/', Action\Main\MainPageAction::class . ':handle')->setName('index')
+        ->add($container->get(UserEmailMiddleware::class));
 
     $app->group('', function(RouteCollectorProxy $group) {
         $group->get('/{lang}[/]', Action\Main\MainPageAction::class . ':handle')->setName('index');
