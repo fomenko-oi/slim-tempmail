@@ -14,7 +14,7 @@ RUN set -eux; PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --wi
 RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet
 
 COPY ./supervisor/supervisord.conf /etc/supervisor
-COPY ./supervisor/commands/* /etc/supervisor/conf.d
+COPY ./supervisor/commands/ /etc/supervisor/conf.d
 
 WORKDIR /var/www/html
 

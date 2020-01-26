@@ -86,6 +86,9 @@ services:
       - "8084:8000"
     working_dir: /var/www
     tty: true
+    depends_on:
+      - rabbitmq
+    command: node websocket.js
 
   rabbitmq:
     image: rabbitmq:3-management
