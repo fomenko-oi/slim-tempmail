@@ -34,6 +34,7 @@ services:
       - nodejs
       - rabbitmq
     tty: true
+    command: php bin/app.php amqp:init
   php-fpm:
     build:
       context: ./docker
@@ -79,16 +80,17 @@ services:
     restart: always
 
   nodejs:
-    image: node:10.11-jessie
+    build:
+      context: ./docker
+      dockerfile: nodejs.docker
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
     ports:
       - "8084:8000"
-    working_dir: /var/www
     tty: true
     depends_on:
       - rabbitmq
-    command: node websocket.js
+    command: npm start
 
   rabbitmq:
     image: rabbitmq:3-management

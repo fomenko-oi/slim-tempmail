@@ -23,6 +23,11 @@ return [
             $container->get(AMQPStreamConnection::class)
         );
     },
+    Command\Amqp\InitCommand::class => function (ContainerInterface $container) {
+        return new Command\Amqp\InitCommand(
+            $container->get(AMQPStreamConnection::class)
+        );
+    },
     Command\Mail\CreateDomainCommand::class => function (ContainerInterface $container) {
         return new Command\Mail\CreateDomainCommand(
             $container->get(\App\Http\Validator\Validator::class),
@@ -37,6 +42,7 @@ return [
                 Command\Mail\SendMailCommand::class,
                 Command\Amqp\ProduceCommand::class,
                 Command\Amqp\ConsumeCommand::class,
+                Command\Amqp\InitCommand::class,
                 Command\Mail\CreateDomainCommand::class,
             ],
         ],
