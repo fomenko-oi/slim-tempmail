@@ -31,10 +31,8 @@ services:
     depends_on:
       - mysql
       - imap-mail
-      - nodejs
       - rabbitmq
     tty: true
-    command: php bin/app.php amqp:init
   php-fpm:
     build:
       context: ./docker
@@ -44,7 +42,6 @@ services:
     depends_on:
       - mysql
       - imap-mail
-      - nodejs
       - rabbitmq
 
   storage-nginx:
@@ -90,6 +87,7 @@ services:
     tty: true
     depends_on:
       - rabbitmq
+      - php-cli
     command: npm start
 
   rabbitmq:

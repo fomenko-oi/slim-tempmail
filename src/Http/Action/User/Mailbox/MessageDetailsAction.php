@@ -42,9 +42,12 @@ class MessageDetailsAction
     {
         $message = $this->messages->findById($request->getAttribute('message'));
 
-        return new HtmlResponse($this->view->render('app/inbox/message.html.twig', [
-            'message'   => $message,
-            'lang'      => $this->languageManager->get()
+        list($receiver, $host) = explode('@', $this->userProvider->getEmail());
+
+        return new HtmlResponse($this->view->render('app2/inbox/message.html.twig', [
+            'message'       => $message,
+            'messages'      => $messages = $this->messages->findByAddress($host, $receiver),
+            'messagesCount' => count($messages)
         ]));
     }
 }

@@ -39,7 +39,7 @@ class IncomingCheckCommand extends Command
                 $output->writeln('<comment>Total handled '.$count.' messages</comment>');
             }
 
-            sleep(1);
+            usleep(500000);
         }
 
         $output->writeln("<comment>Finish the process. Total handled {$count} messages.</comment>");

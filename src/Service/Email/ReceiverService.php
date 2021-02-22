@@ -77,7 +77,7 @@ class ReceiverService
                 $filePath = 'attachments/' . $this->generateName($attachment->getFilename());
                 $this->filesystem->put($filePath, $attachment->getDecodedContent());
 
-                $data->addFile($dataAttachment = new EmailFile($filePath, $attachment->getFilename(), $attachment->getType()));
+                $data->addFile($dataAttachment = new EmailFile($filePath, $attachment->getFilename(), $attachment->getType(), $attachment->getSize()));
             }
 
             $data->recordEvent(new MessageUploaded(

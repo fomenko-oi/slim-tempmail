@@ -26,7 +26,6 @@ class DoctrineFileRepository implements FileRepository
 
     public function findById(string $id): ?EmailFile
     {
-        // TODO fix this (doesn't work)
         return $this->repo->createQueryBuilder('f')
             ->andWhere('f.id = :id')
             ->setParameter(':id', $id)

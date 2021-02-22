@@ -249,4 +249,28 @@ class EmailMessage implements AggregateRoot
     {
         return $this->createdAt;
     }
+
+    public function getFirstSenderLetter()
+    {
+        return ltrim(substr($this->sender, 0, 1), '<');
+    }
+
+    public static function getLabelClassesList(): array
+    {
+        return [
+            'primary', 'success', 'info', 'warning', 'danger'
+        ];
+    }
+
+    public function getLabelClass()
+    {
+        $number = ord(mb_strtolower($this->getFirstSenderLetter(), 'utf-8'));
+        if($number === 0) {
+            $number = 1;
+        }
+
+        $labels = self::getLabelClassesList();
+
+        return $labels[$number % count($labels)] ?? $labels[0];
+    }
 }

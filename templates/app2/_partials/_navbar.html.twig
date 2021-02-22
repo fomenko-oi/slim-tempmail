@@ -1,0 +1,85 @@
+<div id="loader" style="position: absolute">
+    <div id="progress" style="width: 0%; z-index: 10"></div>
+</div>
+
+<nav class="navside navside-expand-lg sticky-top order-2 order-lg-0">
+    <div class="container">
+        <a class="d-none d-lg-inline link-body" rel="home" href="/{{ lang }}/">
+            <i class="gi-animation-hover">
+                <img src="/v2/img/buddah.png" style="width: 1.4em; height: 1.4em" class="gi gi-animation gi-animation-hover-pulse fs-xxl">
+
+                {#<svg class="gi gi-github-fill gi-animation gi-animation-hover-pulse fs-xxl" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1A10.89 10.89 0 0 0 1 11.77 10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11 2.37 2.37 0 0 0 3.2.89 2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91 3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.68 10.68 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77 10.89 10.89 0 0 0 12 1"/>
+                </svg>#}
+
+                {#<svg class="gi gi-github-fill gi-animation gi-animation-hover-pulse fs-xxl" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1A10.89 10.89 0 0 0 1 11.77 10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11 2.37 2.37 0 0 0 3.2.89 2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91 3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.68 10.68 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77 10.89 10.89 0 0 0 12 1"/>
+                </svg>#}
+            </i>
+        </a>
+
+        <ul class="nav navside-nav" role="tablist" aria-orientation="vertical">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#refresh" role="tab" aria-controls="refresh" aria-selected="true" id="click-to-refresh">
+                    <i class="gi-animation-hover">
+                        <svg class="gi gi-message-square-fill gi-animation gi-animation-hover-pulse fs-lg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5a3 3 0 0 0-3 3v15a1 1 0 0 0 .51.87A1 1 0 0 0 3 22a1 1 0 0 0 .51-.14L8 19.14a1 1 0 0 1 .55-.14H19a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM8 12a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm4 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm4 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/{{ lang }}/user/settings">
+                    <i class="gi-animation-hover">
+                        <svg class="gi gi-people-fill gi-animation gi-animation-hover-pulse fs-lg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/>
+                            <path d="M17 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3z"/>
+                            <path d="M21 20a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1"/>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="nav-item flex-lg-grow-1">
+                <a class="nav-link" data-toggle="tab" href="#delete" role="tab" aria-controls="notifications" aria-selected="false" id="click-to-delete">
+                    <i class="gi-animation-hover">
+                        <svg class="gi gi-bell-fill gi-animation gi-animation-hover-pulse fs-lg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.52 15.21l-1.8-1.81V8.94a6.86 6.86 0 0 0-5.82-6.88 6.74 6.74 0 0 0-7.62 6.67v4.67l-1.8 1.81A1.64 1.64 0 0 0 4.64 18H8v.34A3.84 3.84 0 0 0 12 22a3.84 3.84 0 0 0 4-3.66V18h3.36a1.64 1.64 0 0 0 1.16-2.79zM14 18.34A1.88 1.88 0 0 1 12 20a1.88 1.88 0 0 1-2-1.66V18h4z"/>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            {#<li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">
+                    <i class="gi-animation-hover">
+                        <svg class="gi gi-settings-fill gi-animation gi-animation-hover-pulse fs-lg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="1.5"/>
+                            <path d="M21.89 10.32L21.1 7.8a2.26 2.26 0 0 0-2.88-1.51l-.34.11a1.74 1.74 0 0 1-1.59-.26l-.11-.08a1.76 1.76 0 0 1-.69-1.43v-.28a2.37 2.37 0 0 0-.68-1.68 2.26 2.26 0 0 0-1.6-.67h-2.55a2.32 2.32 0 0 0-2.29 2.33v.24a1.94 1.94 0 0 1-.73 1.51l-.13.1a1.93 1.93 0 0 1-1.78.29 2.14 2.14 0 0 0-1.68.12 2.18 2.18 0 0 0-1.12 1.33l-.82 2.6a2.34 2.34 0 0 0 1.48 2.94h.16a1.83 1.83 0 0 1 1.12 1.22l.06.16a2.06 2.06 0 0 1-.23 1.86 2.37 2.37 0 0 0 .49 3.3l2.07 1.57a2.25 2.25 0 0 0 1.35.43A2 2 0 0 0 9 22a2.25 2.25 0 0 0 1.47-1l.23-.33a1.8 1.8 0 0 1 1.43-.77 1.75 1.75 0 0 1 1.5.78l.12.17a2.24 2.24 0 0 0 3.22.53L19 19.86a2.38 2.38 0 0 0 .5-3.23l-.26-.38A2 2 0 0 1 19 14.6a1.89 1.89 0 0 1 1.21-1.28l.2-.07a2.36 2.36 0 0 0 1.48-2.93zM12 15.5a3.5 3.5 0 1 1 3.5-3.5 3.5 3.5 0 0 1-3.5 3.5z"/>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="nav-item d-none d-lg-block">
+                <a class="nav-link" href="#">
+                    <i class="gi-animation-hover">
+                        <svg class="gi gi-bulb-fill gi-animation gi-animation-hover-pulse fs-lg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 7a5 5 0 0 0-3 9v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a5 5 0 0 0-3-9z"/>
+                            <path d="M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1z"/>
+                            <path d="M21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z"/>
+                            <path d="M5 11H3a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z"/>
+                            <path d="M7.66 6.42L6.22 5a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0-.06-1.41z"/>
+                            <path d="M19.19 5.05a1 1 0 0 0-1.41 0l-1.44 1.37a1 1 0 0 0 0 1.41 1 1 0 0 0 .72.31 1 1 0 0 0 .69-.28l1.44-1.39a1 1 0 0 0 0-1.42z"/>
+                        </svg>
+                    </i>
+                </a>
+            </li>#}
+
+            {#<li class="nav-item d-none d-lg-block">
+                <span class="avatar avatar-md status status-online lead bg-primary rounded-circle">{{ user_email|first }}</span>
+            </li>#}
+        </ul>
+    </div>
+</nav>

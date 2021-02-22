@@ -13,6 +13,24 @@ socket.on('connect', function () {
     });
 });
 
+const copiedButton = $('#copied');
+const mailInput = $('#mail');
+const mailInputHandler = () => {
+    mailInput.select();
+
+    if (mailInput.setSelectionRange) {
+        mailInput.setSelectionRange(0, 99999);
+    }
+    document.execCommand('copy');
+    console.log("Copied value: " + mailInput.val());
+
+    copiedButton.removeClass('invisible');
+    setTimeout(() => copiedButton.addClass('invisible'), 800)
+};
+
+mailInput.click(mailInputHandler);
+$('.copy-email').click(mailInputHandler);
+
 $('#click-to-delete').click(e => {
     axios.put('/user/random_email')
         .then(res => {

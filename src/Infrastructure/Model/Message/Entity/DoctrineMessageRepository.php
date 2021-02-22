@@ -49,7 +49,7 @@ class DoctrineMessageRepository implements MessageRepository
             ->andWhere('m.receiver = :login')
             ->setParameter(':host', $host)
             ->setParameter(':login', $login)
-            ->orderBy('m.createdAt', 'asc')
+            ->orderBy('m.createdAt', 'desc')
             ->getQuery()->getResult();
     }
 

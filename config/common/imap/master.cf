@@ -1,0 +1,2 @@
+myhook unix - n n - - pipe
+  flags=F user=www-data argv=/path/to/postfix.php ${sender} ${size} ${recipient}

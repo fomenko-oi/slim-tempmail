@@ -39,8 +39,13 @@ class EmailFile
      * @ORM\Column(type="string")
      */
     private $type;
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $size;
 
-    public function __construct(string $path, string $name, string $type)
+    public function __construct(string $path, string $name, string $type, ?int $size = null)
     {
         Assert::notEmpty($path);
 
@@ -48,6 +53,7 @@ class EmailFile
         $this->path = $path;
         $this->name = $name;
         $this->type = $type;
+        $this->size = $size;
     }
 
     /**
@@ -88,6 +94,14 @@ class EmailFile
     public function getType(): string
     {
         return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSize(): ?int
+    {
+        return $this->size;
     }
 
     public function setMessage(EmailMessage $message): self
