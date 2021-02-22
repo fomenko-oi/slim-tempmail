@@ -1,4 +1,5 @@
-The project is a lightweight copy of temp-mail.org.
+The project is a lightweight copy of temp-mail.org for receiving emails on temporary account. 
+Using *Slim framework and Websockets*.
 
 Run project using Docker:
 
